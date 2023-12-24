@@ -1,5 +1,6 @@
 package hello.hellospring;
 
+import hello.hellospring.aop.TimeTraceAop;
 import hello.hellospring.repository.*;
 import hello.hellospring.service.MemberService;
 import jakarta.persistence.EntityManager;
@@ -20,29 +21,12 @@ public class SpringConfig {
         this.memberRepository = memberRepository;
     }
 
- //   private EntityManager em;
-
-    //private DataSource dataSource;
-
-
-/*
-    @Autowired
-    public SpringConfig(EntityManager em) {
-        this.em = em;
-    }
-*/
 
     @Bean
     public MemberService memberService(){
         return new MemberService(memberRepository);
     }
 
-/*    @Bean
-    public MemberRepository memberRepository(){
 
-        //return new MemoryMemberRepository();
-        //return new JdbcMemberRepository(dataSource);
-        //return new JdbcTemplateMemberRepository(dataSource);
-        //return new JpaMemberRepository(em);
-    }*/
+
 }
